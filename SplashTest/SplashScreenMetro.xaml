@@ -1,0 +1,40 @@
+﻿<Controls:MetroWindow
+    x:Class="SplashTest.SplashScreenMetro"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SplashTest"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Name="Splash"
+    Title="SplashScreenMetro"
+    Width="800"
+    Height="250"
+    Background="DimGray"
+    ResizeMode="NoResize"
+    UseNoneWindowStyle="True"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Grid DataContext="{Binding ElementName=Splash}">
+        <Label
+            x:Name="lblmessage"
+            Grid.Row="0"
+            Margin="10,34,10,166"
+            Content="{Binding Path=Message}"
+            FontFamily="Tahoma"
+            FontSize="18"
+            FontStretch="Normal"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            Foreground="Orange" />
+
+        <!--<Controls:ProgressRing
+            x:Name="progressring"
+            Width="180"
+            Height="230"
+            Margin="431,10,189,10"
+            Foreground="Orange"
+            IsActive="True"
+            Visibility="Visible" />-->
+    </Grid>
+</Controls:MetroWindow>
