@@ -53,24 +53,24 @@ namespace SplashTest
             {
                 WorkerReportsProgress = true
             };
-            worker.DoWork += worker_DoWork;
-            worker.ProgressChanged += worker_ProgressChanged;
+            worker.DoWork += Worker_DoWork;
+            worker.ProgressChanged += Worker_ProgressChanged;
 
             worker.RunWorkerAsync();
         }
 
-        private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            lblmessage.Content = Message + "  " +  e.ProgressPercentage + " % geladen.";
+            lblmessage.Content = Message + "  " +  e.ProgressPercentage + " % loadded ";
         }
 
-        private void worker_DoWork(object sender, DoWorkEventArgs e)
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             for (int i = 0; i < 100; i++)
             {
-
                 (sender as BackgroundWorker).ReportProgress(i);
-                Thread.Sleep(50);
+                
+                Thread.Sleep(25);
             }
         }
     }
