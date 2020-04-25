@@ -2,8 +2,10 @@
 using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,9 +41,37 @@ namespace SplashTest
         {
             InitializeComponent();
 
-            this.Message = message;
+            Message = message;
 
-            lblmessage.Content = this.Message;
+            lblmessage.Content = Message;
+
+        }
+
+        private void MetroWindow_ContentRendered(object sender, EventArgs e)
+        {
+            BackgroundWorker worker = new BackgroundWorker
+            {
+                WorkerReportsProgress = true
+            };
+            worker.DoWork += worker_DoWork;
+            worker.ProgressChanged += worker_ProgressChanged;
+
+            worker.RunWorkerAsync();
+        }
+
+        private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblmessage.Content = Message + "  " +  e.ProgressPercentage + " % geladen.";
+        }
+
+        private void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+
+                (sender as BackgroundWorker).ReportProgress(i);
+                Thread.Sleep(50);
+            }
         }
     }
 }
