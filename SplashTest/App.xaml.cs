@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace SplashTest
 {
@@ -14,7 +15,7 @@ namespace SplashTest
         {
             base.OnStartup(e);
 
-            MetroWindow splash = new SplashScreenMetro("Data Loading in Progress.....");
+            MetroWindow splash = new SplashScreenMetro("Data Loading in Progress.....", progressbarbrush: Brushes.Orange, backgroundbrush: Brushes.Black);
 
             splash.Show();
 

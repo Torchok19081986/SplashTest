@@ -6,15 +6,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SplashTest"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="mainwindow"
     Title="SplashScreenMetro"
     Width="800"
     Height="148.422"
     Background="AliceBlue"
+    ContentRendered="MetroWindow_ContentRendered"
+    DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
     ResizeMode="NoResize"
     UseNoneWindowStyle="True"
     WindowStyle="None"
-    DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
-    mc:Ignorable="d" ContentRendered="MetroWindow_ContentRendered">
+    mc:Ignorable="d">
     <Grid>
         <Label
             x:Name="lblmessage"
@@ -28,6 +30,11 @@
             FontWeight="Bold"
             Foreground="Orange" />
 
-        <Controls:MetroProgressBar x:Name="progressloadingindecator" Minimum="0" Maximum="100" Foreground="Orange" IsIndeterminate="True"  />
+        <Controls:MetroProgressBar
+            x:Name="progressloadingindecator"
+            Foreground="{Binding IndicatorBrush}"
+            IsIndeterminate="True"
+            Maximum="100"
+            Minimum="0" />
     </Grid>
 </Controls:MetroWindow>
