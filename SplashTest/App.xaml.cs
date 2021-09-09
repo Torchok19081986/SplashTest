@@ -1,13 +1,7 @@
 ﻿using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace SplashTest
 {
@@ -21,13 +15,9 @@ namespace SplashTest
         {
             base.OnStartup(e);
 
-            MetroWindow splash = new SplashScreenMetro("Data Loading in Progress.....");
+            MetroWindow splash = new SplashScreenMetro("Data Loading in Progress.....", progressbarbrush: Brushes.Orange, backgroundbrush: Brushes.Black);
 
             splash.Show();
-            
-            // var controller = await splash.ShowProgressAsync("Tets","Test", false, new MetroDialogSettings() { MaximumBodyHeight = 70, DialogMessageFontSize = 18  }) as ProgressDialogController;
-
-            // controller.SetIndeterminate();
 
             MainWindow main = new MainWindow();
 
@@ -36,8 +26,6 @@ namespace SplashTest
             Current.MainWindow = main;
 
             await Task.Delay(2500);
-
-            // await controller.CloseAsync();
 
             splash.Close();
 
